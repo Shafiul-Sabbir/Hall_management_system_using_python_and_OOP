@@ -5,9 +5,8 @@ class Hall:
         self._cols = cols
         self._hall_no = hall_no
         self._seats = {id: [[ None for _ in range(cols)] for _ in range(rows)]}  # 2D list to store seat status
-        self._show_list = [] # List of tuples to store show information
+        self._show_list = [] 
         
-        # Add the Hall object to the Star_Cinema hall_list
         Star_Cinema.entry_hall(self)
         
     
@@ -81,7 +80,6 @@ class Hall:
                 if seats_for_show[row - 1][col - 1] is None:
                     text = colored(f"{row}{chr(col + 64)}\t",'blue',attrs=['reverse', 'blink'])
                     print(f"{text}", end = " ")
-                    # print(f"{row}{chr(col+64)}", end = " ")
                 else:
                     text = colored('XX\t', 'red', attrs=['reverse', 'blink'])
                     print(f"{text}", end = " ")
@@ -100,11 +98,14 @@ class Star_Cinema:
             print("invalid object type. Only valid hall objects can be added")
 
 
+# making hall object from Hall   class.
 hall = Hall(rows=5, cols=5, hall_no=1)
+
+# entry show to the hall object.
 hall.entry_show(1, "Prem er Shomadhi", "Aug 08 2023 06:00 PM")
 hall.entry_show(2, "Poran er Pakhi", "Aug 08 2023 09:00 PM")
 
-
+# main part starts from here.
 y = True
 while(y):
     print("\n")
